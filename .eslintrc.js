@@ -18,6 +18,9 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'import/no-unresolved': [2, {
+      caseSensitive: false
+    }],
     'linebreak-style': ['error', 'windows'],
     camelcase: 'off',
     curly: 'off',
