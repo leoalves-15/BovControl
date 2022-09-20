@@ -18,10 +18,10 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    'import/no-unresolved': [2, {
+    'import/no-unresolved': [0, {
       caseSensitive: false,
     }],
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': 0,
     camelcase: 'off',
     curly: 'off',
     'global-require': 'off',
@@ -38,7 +38,7 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: true },
+      { includeInternal: true, includeTypes: true },
     ],
     'import/extensions': [
       'error',
