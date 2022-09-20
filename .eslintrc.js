@@ -19,7 +19,7 @@ module.exports = {
   ],
   rules: {
     'import/no-unresolved': [2, {
-      caseSensitive: false
+      caseSensitive: false,
     }],
     'linebreak-style': ['error', 'windows'],
     camelcase: 'off',
