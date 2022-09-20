@@ -1,6 +1,6 @@
 {
   "name": "bov-control",
-  "version": "0.1.0",
+  "version": "1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
@@ -13,6 +13,7 @@
     "@types/styled-components": "^5.1.26",
     "axios": "^0.27.2",
     "eslint": "^8.23.1",
+    "eslint-config-airbnb": "^19.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -43,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/leoalves-15/BovControl.git",
+  "author": "leandroalves <leandro.alves@lighthouseit.com.br>",
+  "license": "MIT"
 }
