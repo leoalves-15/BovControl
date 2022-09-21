@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Task = () => <>f</>;
+const Task = () => <></>;
 
 export default Task;
