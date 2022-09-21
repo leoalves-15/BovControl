@@ -5,7 +5,7 @@ import { task } from "../types/Task.type"
 export const updateTask = async (data: task, id: number) => {
   var config = {
     method: "put",
-    url: `${BASE_URL}/v1/checkList/${id}`,
+    url: `${BASE_URL}v1/checkList/${id}`,
     headers: {
       "Content-Type": "application/json",
     },

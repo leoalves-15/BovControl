@@ -4,7 +4,7 @@ import { BASE_URL } from "../constants/contants";
 export const getTask = async (id: number) => {
   var config = {
     method: "get",
-    url: `${BASE_URL}/v1/checkList/${id}`,
+    url: `${BASE_URL}v1/checkList/${id}`,
     headers: {},
   };
 

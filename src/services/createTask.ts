@@ -5,7 +5,7 @@ import { task } from "../types/Task.type";
 export const createTask = async (data: task[]) => {
   var config = {
     method: "post",
-    url: `${BASE_URL}/v1/checkList/`,
+    url: `${BASE_URL}v1/checkList/`,
     headers: {
       "Content-Type": "application/json",
     },

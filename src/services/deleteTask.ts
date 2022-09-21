@@ -4,7 +4,7 @@ import { BASE_URL } from "../constants/contants";
 export const deleteTask = async (id: number) => {
   var config = {
     method: "delete",
-    url: `${BASE_URL}/v1/checkList/${id}`,
+    url: `${BASE_URL}v1/checkList/${id}`,
     headers: {},
   };
 

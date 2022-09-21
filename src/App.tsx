@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GlobalStyle from "./styles/global";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Create from "./pages/Create";
 import Task from "./pages/Task";
 import Update from "./pages/Update";

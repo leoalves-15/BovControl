@@ -3,7 +3,7 @@ import { BASE_URL } from "../constants/contants";
 
 var config = {
   method: "get",
-  url: `${BASE_URL}/v1/checkList`,
+  url: `${BASE_URL}v1/checkList`,
   headers: {},
 };
 
