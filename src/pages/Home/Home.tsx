@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Task from "../../components/Task";
+import { Task } from "../../components/Task";
 import { getTasks } from "../../services/getAll";
 import { task } from "../../types/Task.type";
 import { ContainHome } from "./styles";
 import { PageTitle } from "../../styles/generic-components";
+import { AddTask } from "../../components/AddTask";
 
 const Home = () => {
   const [allTasks, setAllTasks] = useState<task[]>([]);
@@ -17,7 +18,8 @@ const Home = () => {
 
   return (
     <ContainHome>
-      <PageTitle>Bem vindo, essas são suas tasks.</PageTitle>
+      <PageTitle>Wellcome, these are your tasks.</PageTitle>
+      <AddTask />
       {allTasks.map((task) => {
         return (
           <Task

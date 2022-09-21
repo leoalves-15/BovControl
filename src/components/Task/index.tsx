@@ -12,7 +12,7 @@ import Trash from "../../assets/images/trash.svg";
 import Pencil from "../../assets/images/pencil.svg";
 import { useNavigate } from "react-router-dom";
 
-const Task: FC<TaskProps> = ({ farmerName, city, farmName, createDate }) => {
+export const Task: FC<TaskProps> = ({ farmerName, city, farmName, createDate }) => {
   const navigate = useNavigate();
 
   return (
@@ -31,7 +31,7 @@ const Task: FC<TaskProps> = ({ farmerName, city, farmName, createDate }) => {
             src={Pencil}
             alt="Update"
             onClick={() => {
-              navigate("/Update");
+              navigate("Update");
             }}
           />
         </NavIcons>
@@ -39,5 +39,3 @@ const Task: FC<TaskProps> = ({ farmerName, city, farmName, createDate }) => {
     </Container>
   );
 };
-
-export default Task;

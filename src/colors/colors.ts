@@ -4,4 +4,5 @@ export const colors = {
   titlePage: "#3d3c3c",
   subtitlePage: "#cdcdcd",
   titleCard: "#898989",
+  addColor: "#1877f2"
 };
