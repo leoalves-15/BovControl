@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export default createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
    *{
        margin: 0;
        padding: 0;
@@ -9,6 +9,7 @@ export default createGlobalStyle`
        font-family: 'Open Sans', sans-serif; 
    }
    #root{
-       margin:0 auto;
+       margin: 0 auto;
    }
 `;
+export default GlobalStyle;

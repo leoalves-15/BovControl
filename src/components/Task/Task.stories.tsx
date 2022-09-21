@@ -7,5 +7,5 @@ export default {
 } as ComponentMeta<typeof Task>;
 
 export const Primary: ComponentStory<typeof Task> = () => (
-  <Task />
+  <Task farmerName="Leo Alves" city="Barreiras" farmName="Fazenda Futuro" createDate="2022-08-27T17:30:08.380Z"/>
 );
