@@ -23,8 +23,8 @@ const Task = () => {
           }}
         />
       </NavIcons>
-      <PageTitle>Task: {currentTask?.farmer?.name}</PageTitle>
-      <FormTask task={currentTask} disabled={true} />
+      <PageTitle>{currentTask?.farmer?.name ? `Task: ${currentTask?.farmer?.name}` : "Sorry! we can't find your task"}</PageTitle>
+      {currentTask?.farmer?.name && <FormTask task={currentTask} disabled={true} />}
     </ContainPage>
   );
 };

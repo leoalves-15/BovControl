@@ -35,7 +35,7 @@ export const Task: FC<TaskProps> = ({
             src={Pencil}
             alt="Update"
             onClick={() => {
-              navigate("Update");
+              navigate(`Update?id=${id}`);
             }}
           />
         </NavIcons>
