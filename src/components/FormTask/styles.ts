@@ -81,6 +81,7 @@ export const Select = styled.select`
     cursor: not-allowed;
   }
 `;
+
 export const SaveButton = styled.button`
   width: 250px;
   height: 40px;
