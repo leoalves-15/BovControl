@@ -6,4 +6,5 @@ export const colors = {
   titleCard: "#898989",
   addColor: "#1877f2",
   blockedInput: "#fbfbfb",
+  delete: "#ff0000"
 };

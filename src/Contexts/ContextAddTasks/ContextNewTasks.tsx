@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import { ContextTaskProp } from "./ContextNewTask.type";
 import { ReactNode } from "react";
 import { task } from "../../types/Task.type";
@@ -13,13 +13,9 @@ const NewTasksProvider = (props: { children: ReactNode }) => {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState<task[]>([] as task[]);
 
-  useEffect(() => {
-    console.log(tasks);
-  }, [tasks]);
-
-  const createTasks = () => {
-    createTask(tasks);
-    navigate('/');
+  const createTasks = async () => {
+    await createTask(tasks);
+    navigate("/");
   };
 
   return (
