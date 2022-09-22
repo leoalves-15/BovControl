@@ -6,9 +6,12 @@ export const Container = styled.div`
   align-items: center;
   max-width: 100%;
   width: 1000px;
-  border: none;
   background: none;
+  padding: 20px;
   cursor: pointer;
+  -webkit-box-shadow: 0px 8px 16px 8px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 8px 16px 8px rgba(0, 0, 0, 0.14);
+  border-radius: 5px;
 `;
 
 export const Form = styled.form`
@@ -31,6 +34,7 @@ export const FormRow = styled.div`
   background: none;
   cursor: pointer;
   justify-content: space-between;
+  padding-top: 30px;
 `;
 
 export const InputFull = styled.input`
@@ -46,6 +50,10 @@ export const InputFull = styled.input`
   border-radius: 5px;
   color: ${colors.titlePage};
   font-size: 14px;
+  &:disabled {
+    background: ${colors.blockedInput};
+    cursor: not-allowed;
+  }
 `;
 
 export const InputHalf = styled(InputFull)`
@@ -54,6 +62,7 @@ export const InputHalf = styled(InputFull)`
 `;
 
 export const Select = styled.select`
+  margin-left: 20px;
   width: 240px;
   max-width: 100%;
   height: 40px;
@@ -66,4 +75,8 @@ export const Select = styled.select`
   border-radius: 5px;
   color: ${colors.titlePage};
   font-size: 14px;
+  &:disabled {
+    background: ${colors.blockedInput};
+    cursor: not-allowed;
+  }
 `;

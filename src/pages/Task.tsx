@@ -6,7 +6,7 @@ const Task = () => {
   return (
     <ContainPage>
       <PageTitle>Task:</PageTitle>
-      <FormTask />
+      <FormTask disabled={true}/>
     </ContainPage>
   );
 };
