@@ -1,6 +1,7 @@
-import { ReactNode } from "react"
+import { Dispatch, SetStateAction } from "react";
+import { task } from "../../types/Task.type";
 
 export type ContextTaskProp = {
-    children: ReactNode;
-    createTasks: () => void;
-}
+  setTasks: Dispatch<SetStateAction<task[]>>;
+  createTasks: (Tasks: task[]) => void;
+};

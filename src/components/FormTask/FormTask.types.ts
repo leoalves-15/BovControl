@@ -2,6 +2,7 @@ import { task } from "../../types/Task.type";
 
 export type FormTaskProps = {
     disabled?: boolean;
+    textButton?: string;
     task?: task;
-    send?: () => void;
+    send?: (e: { preventDefault: () => void }) => void;
 };
