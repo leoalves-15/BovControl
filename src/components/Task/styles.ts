@@ -41,13 +41,3 @@ export const TaskColumn = styled.div`
   cursor: pointer;
 `;
 
-export const NavIcons = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: 100%;
-  img {
-    padding: 5px;
-    cursor: pointer;
-  }
-`;

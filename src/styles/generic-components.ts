@@ -13,3 +13,14 @@ export const ContainPage = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+export const NavIcons = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  img {
+    padding: 5px;
+    cursor: pointer;
+  }
+`;

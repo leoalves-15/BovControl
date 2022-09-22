@@ -10,7 +10,7 @@ import {
 } from "./styles";
 
 const FormTask: FC<FormTaskProps> = (props) => {
-  const { disabled } = props;
+  const { disabled, task } = props;
 
   const myref = useRef<HTMLFormElement>(null);
 
@@ -22,15 +22,15 @@ const FormTask: FC<FormTaskProps> = (props) => {
     <Container>
       <Form ref={myref}>
         <FormRow>
-          <InputFull disabled={disabled} placeholder="Farm Name" />
+          <InputFull value={task?.farmer?.name} disabled={disabled} placeholder="Farm Name" />
         </FormRow>
         <FormRow>
-          <InputFull disabled={disabled} placeholder="Farmer Name" />
+          <InputFull value={task?.from?.name} disabled={disabled} placeholder="Farmer Name" />
         </FormRow>
         <FormRow>
           {/* city e type */}
-          <InputFull disabled={disabled} placeholder="City" />
-          <Select disabled={disabled}>
+          <InputFull value={task?.farmer?.city} disabled={disabled} placeholder="City" />
+          <Select value={task?.type} disabled={disabled}>
             <option value="Antibiótico">Antibiótico</option>
             <option value="BPA">BPA</option>
             <option value="BPF">BPF</option>
@@ -38,16 +38,16 @@ const FormTask: FC<FormTaskProps> = (props) => {
         </FormRow>
         <FormRow>
           {/* numero de vaca, de leite e se tem cuidador */}
-          <InputHalf disabled={disabled} placeholder="Cown quantity" />
-          <InputHalf disabled={disabled} placeholder="Milk production" />
-          <Select disabled={disabled}>
+          <InputHalf value={task?.number_of_cows_head} disabled={disabled} placeholder="Cown quantity" />
+          <InputHalf value={task?.amount_of_milk_produced} disabled={disabled} placeholder="Milk production" />
+          <Select value={`${task?.had_supervision}`} disabled={disabled}>
             <option value="true">Yes</option>
             <option value="false">No</option>
           </Select>
         </FormRow>
         <FormRow>
           {/* supervisor */}
-          <InputFull disabled={disabled} placeholder="Supervision name" />
+          <InputFull value={task?.to?.name} disabled={disabled} placeholder="Supervision name" />
         </FormRow>
         <FormRow>{/* mapa */}</FormRow>
       </Form>

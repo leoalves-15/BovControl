@@ -1,12 +1,6 @@
 import React, { FC } from "react";
-import {
-  Container,
-  FarmerName,
-  Infos,
-  CreateDate,
-  NavIcons,
-  TaskColumn,
-} from "./styles";
+import { Container, FarmerName, Infos, CreateDate, TaskColumn } from "./styles";
+import { NavIcons } from "../../styles/generic-components";
 import { TaskProps } from "./Task.types";
 import Trash from "../../assets/images/trash.svg";
 import Pencil from "../../assets/images/pencil.svg";
