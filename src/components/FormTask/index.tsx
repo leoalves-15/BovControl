@@ -19,7 +19,7 @@ const FormTask = () => {
         </FormRow>
         <FormRow>
             {/* city e type */}
-            <InputHalf placeholder="City"/>
+            <InputFull placeholder="City"/>
             <Select>
                 <option value="Antibiótico">Antibiótico</option>
                 <option value="BPA">BPA</option>

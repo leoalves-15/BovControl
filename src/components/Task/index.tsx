@@ -12,12 +12,22 @@ import Trash from "../../assets/images/trash.svg";
 import Pencil from "../../assets/images/pencil.svg";
 import { useNavigate } from "react-router-dom";
 
-export const Task: FC<TaskProps> = ({ farmerName, city, farmName, createDate }) => {
+export const Task: FC<TaskProps> = ({
+  id,
+  farmerName,
+  city,
+  farmName,
+  createDate,
+}) => {
   const navigate = useNavigate();
 
   return (
     <Container>
-      <TaskColumn>
+      <TaskColumn
+        onClick={() => {
+          navigate(`Task?id=${id}`);
+        }}
+      >
         <FarmerName>{farmerName}</FarmerName>
         <Infos>
           {farmName} | {city}

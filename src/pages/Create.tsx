@@ -1,6 +1,6 @@
 import React from "react";
-import NewTask from "../../components/NewTask";
-import NewTasksProvider from "../../Contexts/ContextAddTasks/ContextNewTasks";
+import NewTask from "../components/NewTask";
+import NewTasksProvider from "../Contexts/ContextAddTasks/ContextNewTasks";
 const Create = () => {
   return (
     <NewTasksProvider>

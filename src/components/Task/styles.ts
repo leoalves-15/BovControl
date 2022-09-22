@@ -38,6 +38,7 @@ export const TaskColumn = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   height: 100%;
+  cursor: pointer;
 `;
 
 export const NavIcons = styled.div`
