@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, FC } from "react";
+import React, { FC } from "react";
 import { FormTaskProps } from "./FormTask.types";
 import {
   Container,
@@ -7,29 +7,36 @@ import {
   InputFull,
   InputHalf,
   Select,
+  SaveButton,
 } from "./styles";
 
 const FormTask: FC<FormTaskProps> = (props) => {
-  const { disabled, task } = props;
-
-  const myref = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    console.log(myref.current);
-  }, []);
+  const { disabled, task, send = () => {} } = props;
 
   return (
     <Container>
-      <Form ref={myref}>
+      <Form onSubmit={() => send()}>
         <FormRow>
-          <InputFull value={task?.farmer?.name} disabled={disabled} placeholder="Farm Name" />
+          <InputFull
+            value={task?.farmer?.name}
+            disabled={disabled}
+            placeholder="Farm Name"
+          />
         </FormRow>
         <FormRow>
-          <InputFull value={task?.from?.name} disabled={disabled} placeholder="Farmer Name" />
+          <InputFull
+            value={task?.from?.name}
+            disabled={disabled}
+            placeholder="Farmer Name"
+          />
         </FormRow>
         <FormRow>
           {/* city e type */}
-          <InputFull value={task?.farmer?.city} disabled={disabled} placeholder="City" />
+          <InputFull
+            value={task?.farmer?.city}
+            disabled={disabled}
+            placeholder="City"
+          />
           <Select value={task?.type} disabled={disabled}>
             <option value="Antibiótico">Antibiótico</option>
             <option value="BPA">BPA</option>
@@ -38,8 +45,16 @@ const FormTask: FC<FormTaskProps> = (props) => {
         </FormRow>
         <FormRow>
           {/* numero de vaca, de leite e se tem cuidador */}
-          <InputHalf value={task?.number_of_cows_head} disabled={disabled} placeholder="Cown quantity" />
-          <InputHalf value={task?.amount_of_milk_produced} disabled={disabled} placeholder="Milk production" />
+          <InputHalf
+            value={task?.number_of_cows_head}
+            disabled={disabled}
+            placeholder="Cown quantity"
+          />
+          <InputHalf
+            value={task?.amount_of_milk_produced}
+            disabled={disabled}
+            placeholder="Milk production"
+          />
           <Select value={`${task?.had_supervision}`} disabled={disabled}>
             <option value="true">Yes</option>
             <option value="false">No</option>
@@ -47,9 +62,14 @@ const FormTask: FC<FormTaskProps> = (props) => {
         </FormRow>
         <FormRow>
           {/* supervisor */}
-          <InputFull value={task?.to?.name} disabled={disabled} placeholder="Supervision name" />
+          <InputFull
+            value={task?.to?.name}
+            disabled={disabled}
+            placeholder="Supervision name"
+          />
         </FormRow>
         <FormRow>{/* mapa */}</FormRow>
+        <SaveButton type="submit">Add Task</SaveButton>
       </Form>
     </Container>
   );
