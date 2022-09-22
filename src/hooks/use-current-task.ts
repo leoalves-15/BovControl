@@ -6,7 +6,7 @@ import { useUrl } from "./use-url";
 export function useCurrentTask() {
   const [currentTask, setCurrentTask] = useState<task>();
   const { url } = useUrl();
-  const id = parseInt(url.split("id=")[1]);
+  const id = url.split("id=")[1];
 
   useEffect(() => {
     const load = async () => {

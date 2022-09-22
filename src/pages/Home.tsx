@@ -23,7 +23,7 @@ const Home = () => {
       {allTasks.map((task) => {
         return (
           <Task
-            id={task._id || -1}
+            id={task._id || '-1'}
             key={task._id}
             farmerName={task.from.name}
             farmName={task.farmer.name}

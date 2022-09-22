@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: 1000px;
   background: none;
   padding: 20px;
+  margin-top: 20px;
   cursor: pointer;
   -webkit-box-shadow: 0px 8px 16px 8px rgba(0, 0, 0, 0.14);
   box-shadow: 0px 8px 16px 8px rgba(0, 0, 0, 0.14);
@@ -81,6 +82,15 @@ export const Select = styled.select`
   }
 `;
 export const SaveButton = styled.button`
-  width: 240px;
+  width: 250px;
+  height: 40px;
   max-width: 100%;
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: ${colors.backgroundCard};
+  background-color: ${colors.addColor};
 `;

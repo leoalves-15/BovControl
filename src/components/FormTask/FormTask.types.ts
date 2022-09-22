@@ -4,5 +4,5 @@ export type FormTaskProps = {
     disabled?: boolean;
     textButton?: string;
     task?: task;
-    send?: (e: { preventDefault: () => void }) => void;
+    send?: (e: { preventDefault: () => void }, data: task) => void;
 };

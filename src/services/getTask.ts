@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/contants";
 
-export const getTask = async (id: number) => {
+export const getTask = async (id: string) => {
   var config = {
     method: "get",
     url: `${BASE_URL}v1/checkList/${id}`,

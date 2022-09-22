@@ -13,8 +13,8 @@ type location = {
 };
 
 export type task = {
-  _id?: number;
-  id?: number;
+  _id?: string;
+  id?: string;
   type: string;
   amount_of_milk_produced: number;
   number_of_cows_head: number;

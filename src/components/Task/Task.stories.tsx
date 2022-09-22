@@ -8,7 +8,7 @@ export default {
 
 export const Primary: ComponentStory<typeof Task> = () => (
   <Task
-    id={0}
+    id={'0'}
     farmerName="Leo Alves"
     city="Barreiras"
     farmName="Fazenda Futuro"

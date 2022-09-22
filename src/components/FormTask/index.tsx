@@ -15,7 +15,38 @@ const FormTask: FC<FormTaskProps> = (props) => {
 
   return (
     <Container>
-      <Form onSubmit={(e) => send(e)}>
+      <Form
+        onSubmit={(e: any) => {
+          // any
+          const elements = e.target.elements;
+
+          send(e, {
+            type: elements.type.value,
+            amount_of_milk_produced: parseInt(
+              elements.amount_of_milk_produced.value
+            ),
+            number_of_cows_head: parseInt(elements.number_of_cows_head.value),
+            had_supervision:
+              elements.had_supervision.value === "true" ? true : false,
+            farmer: {
+              name: elements.farm_name.value,
+              city: elements.city.value,
+            },
+            from: {
+              name: elements.farmer_name.value,
+            },
+            to: {
+              name: elements.supervision_name.value,
+            },
+            location: {
+              latitude: -23.5,
+              longitude: -46.6,
+            },
+            created_at: "2022-02-01T10:10:21.748Z",
+            updated_at: "2022-02-01T10:10:21.748Z",
+          });
+        }}
+      >
         <FormRow>
           <InputFull
             defaultValue={task?.farmer?.name}
@@ -52,6 +83,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
             defaultValue={task?.number_of_cows_head}
             disabled={disabled}
             name="number_of_cows_head"
+            type="number"
             placeholder="Cown quantity"
           />
           <InputHalf
@@ -80,7 +112,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
           />
         </FormRow>
         <FormRow>{/* mapa */}</FormRow>
-        <SaveButton type="submit">{textButton}</SaveButton>
+        {textButton && <SaveButton type="submit">{textButton}</SaveButton>}
       </Form>
     </Container>
   );

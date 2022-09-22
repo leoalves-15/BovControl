@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "../constants/contants";
 import { task } from "../types/Task.type"
 
-export const updateTask = async (data: task, id: number) => {
+export const updateTask = async (data: task, id: string) => {
   var config = {
     method: "put",
     url: `${BASE_URL}v1/checkList/${id}`,

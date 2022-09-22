@@ -1,5 +1,5 @@
 export type TaskProps = {
-    id: number;
+    id: string;
     farmerName: string;
     city: string;
     farmName: string;
