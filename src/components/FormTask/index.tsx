@@ -21,9 +21,12 @@ const FormTask: FC<FormTaskProps> = (props) => {
     update = () => {},
     textButton,
   } = props;
+  const date = new Date();
 
   const [created, setCreated] = useState(false);
-  const [hasSupervision, setHasSupervision] = useState(`${task?.had_supervision}`);
+  const [hasSupervision, setHasSupervision] = useState(
+    `${task?.had_supervision}`
+  );
   const [id, setId] = useState("");
 
   const [newPosition, setNewPosition] = useState<Position>(
@@ -72,8 +75,8 @@ const FormTask: FC<FormTaskProps> = (props) => {
               latitude: newPosition?.lat,
               longitude: newPosition?.lng,
             },
-            created_at: "2022-02-01T10:10:21.748Z",
-            updated_at: "2022-02-01T10:10:21.748Z",
+            created_at: `${task?.created_at ? task?.created_at : date}`,
+            updated_at: `${date}`,
           };
           if (saveText) {
             if (created) {
