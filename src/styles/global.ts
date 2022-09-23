@@ -16,5 +16,9 @@ const GlobalStyle = createGlobalStyle`
    body {
     background-color: ${colors.backgroundPage};
    }
+   .leaflet-container{
+        width: 100%;
+        height: 100%;
+    }
 `;
 export default GlobalStyle;

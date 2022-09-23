@@ -38,6 +38,12 @@ export const FormRow = styled.div`
   padding-top: 30px;
 `;
 
+export const ContainMap = styled.div`
+padding-top: 20px ;
+  width: 100%;
+  height: 400px; 
+`;
+
 export const InputFull = styled.input`
   max-width: 100%;
   width: 1000px;

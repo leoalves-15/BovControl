@@ -8,11 +8,12 @@ import {
   InputHalf,
   Select,
   SaveButton,
+  ContainMap,
 } from "./styles";
-
+import Map from "../Map";
 const FormTask: FC<FormTaskProps> = (props) => {
   const [created, setCreated] = useState(false);
-  const [id, setId] = useState("")
+  const [id, setId] = useState("");
 
   const {
     disabled,
@@ -94,7 +95,6 @@ const FormTask: FC<FormTaskProps> = (props) => {
           />
         </FormRow>
         <FormRow>
-          {/* city e type */}
           <InputFull
             defaultValue={task?.farmer?.city}
             disabled={disabled}
@@ -108,7 +108,6 @@ const FormTask: FC<FormTaskProps> = (props) => {
           </Select>
         </FormRow>
         <FormRow>
-          {/* numero de vaca, de leite e se tem cuidador */}
           <InputHalf
             defaultValue={task?.number_of_cows_head}
             disabled={disabled}
@@ -133,7 +132,6 @@ const FormTask: FC<FormTaskProps> = (props) => {
           </Select>
         </FormRow>
         <FormRow>
-          {/* supervisor */}
           <InputFull
             defaultValue={task?.to?.name}
             disabled={disabled}
@@ -141,7 +139,9 @@ const FormTask: FC<FormTaskProps> = (props) => {
             placeholder="Supervision name"
           />
         </FormRow>
-        <FormRow>{/* mapa */}</FormRow>
+        <ContainMap>
+          <Map center={{ lat: task?.location?.latitude || 0, lng: task?.location?.longitude || 0 }} />
+        </ContainMap>
         {textButton && (
           <SaveButton type="submit">
             {created && saveText ? saveText : textButton}

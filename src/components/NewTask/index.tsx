@@ -22,7 +22,7 @@ const NewTask = () => {
 
   const addTask = (e: any, data: task) => {
     e.preventDefault();
-    setTasks((prev) => [...prev, { ...data}]);
+    setTasks((prev) => [...prev, { ...data }]);
   };
 
   return (
@@ -36,6 +36,7 @@ const NewTask = () => {
       {tasks.map((Item) => {
         return (
           <FormTask
+            key={Item._id}
             send={addTask}
             textButton="Add task"
             saveText="Save"
