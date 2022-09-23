@@ -36,12 +36,17 @@ export const FormRow = styled.div`
   cursor: pointer;
   justify-content: space-between;
   padding-top: 30px;
+  @media (max-width: 800px) {
+    & {
+      flex-wrap: wrap;
+    }
+  }
 `;
 
 export const ContainMap = styled.div`
-padding-top: 20px ;
+  padding: 20px 0;
   width: 100%;
-  height: 400px; 
+  height: 400px;
 `;
 
 export const InputFull = styled.input`
@@ -66,6 +71,12 @@ export const InputFull = styled.input`
 export const InputHalf = styled(InputFull)`
   width: 240px;
   max-width: 100%;
+  @media (max-width: 800px) {
+    & {
+      margin: 20px 0px;
+      width: 100%;
+    }
+  }
 `;
 
 export const Select = styled.select`
@@ -85,6 +96,13 @@ export const Select = styled.select`
   &:disabled {
     background: ${colors.blockedInput};
     cursor: not-allowed;
+  }
+  @media (max-width: 800px) {
+    & {
+      margin-top: 20px;
+      margin-left: 0;
+      width: 100%;
+    }
   }
 `;
 

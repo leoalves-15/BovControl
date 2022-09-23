@@ -9,3 +9,8 @@ export type FormTaskProps = {
     update?: (e: { preventDefault: () => void }, data: task) => void;
     idList?: number;
 };
+
+export type Position = {
+    lat: number;
+    lng: number;
+};

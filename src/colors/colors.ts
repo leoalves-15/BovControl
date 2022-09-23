@@ -6,5 +6,6 @@ export const colors = {
   titleCard: "#898989",
   addColor: "#1877f2",
   blockedInput: "#fbfbfb",
-  delete: "#ff0000"
+  delete: "#ff0000",
+  scroll: "#b4b4b4"
 };

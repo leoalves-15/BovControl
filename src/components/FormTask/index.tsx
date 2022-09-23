@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from "react";
-import { FormTaskProps } from "./FormTask.types";
+import { FormTaskProps, Position } from "./FormTask.types";
 import {
   Container,
   Form,
@@ -11,9 +11,11 @@ import {
   ContainMap,
 } from "./styles";
 import Map from "../Map";
+
 const FormTask: FC<FormTaskProps> = (props) => {
   const [created, setCreated] = useState(false);
   const [id, setId] = useState("");
+  const [newPosition, setNewPosition] = useState<Position>({lat: 0, lng: 0});
 
   const {
     disabled,
@@ -61,8 +63,8 @@ const FormTask: FC<FormTaskProps> = (props) => {
               name: elements.supervision_name.value,
             },
             location: {
-              latitude: -23.5,
-              longitude: -46.6,
+              latitude: newPosition?.lat,
+              longitude: newPosition?.lng,
             },
             created_at: "2022-02-01T10:10:21.748Z",
             updated_at: "2022-02-01T10:10:21.748Z",
@@ -140,7 +142,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
           />
         </FormRow>
         <ContainMap>
-          <Map center={{ lat: task?.location?.latitude || 0, lng: task?.location?.longitude || 0 }} />
+          <Map setNewPosition={setNewPosition} center={{ lat: task?.location?.latitude || 0, lng: task?.location?.longitude || 0 }} />
         </ContainMap>
         {textButton && (
           <SaveButton type="submit">

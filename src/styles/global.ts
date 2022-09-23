@@ -20,5 +20,20 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
     }
+    body::-webkit-scrollbar {
+        width: 12px;  
+    }
+    body::-webkit-scrollbar-track {
+        background: ${colors.subtitlePage};       
+    }
+    body::-webkit-scrollbar-thumb {
+        background-color: ${colors.scroll};    
+        border-radius: 20px;       
+    }
+    @media (max-width: 800px){
+        body{
+            padding: 20px;
+        }
+    }
 `;
 export default GlobalStyle;

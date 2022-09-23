@@ -22,6 +22,7 @@ export const Modal = styled.div`
   justify-content: center;
   align-items: center;
   width: 400px;
+  max-width: 90%;
   height: 200px;
   background: ${colors.backgroundCard};
   border-radius: 12px;
@@ -48,5 +49,6 @@ export const ModalButton = styled.button`
   cursor: pointer;
   border-radius: 8px;
   color: ${colors.backgroundCard};
-  background-color: ${(props) => (props.color === "red" ? colors.delete : colors.subtitlePage)};
+  background-color: ${(props) =>
+    props.color === "red" ? colors.delete : colors.subtitlePage};
 `;
