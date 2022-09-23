@@ -7,5 +7,6 @@ export const colors = {
   addColor: "#1877f2",
   blockedInput: "#fbfbfb",
   delete: "#ff0000",
-  scroll: "#b4b4b4"
+  scroll: "#b4b4b4",
+  success: "#00A510"
 };

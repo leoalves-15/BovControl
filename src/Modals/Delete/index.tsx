@@ -1,43 +1,44 @@
-import React, { FC } from "react";
-import {
-  Overlay,
-  Modal,
-  ContainButtons,
-  ModalButton,
-  ModalText,
-} from "./style";
+import React, { FC, useState } from "react";
 import Alert from "../../assets/images/alert.svg";
-import { DeleteProps } from "./Delete.types";
+import GenericModal from "../Generic";
 import { deleteTask } from "../../services/deleteTask";
+import { deleteProps } from "./Delete.types";
+import SuccessModal from "../Success";
 
-const DeleteModal: FC<DeleteProps> = ({ id, close, update }) => {
+const DeleteModal: FC<deleteProps> = ({ id = "", close, update }) => {
+  const [isSuccessOpen, setIsuccessOpen] = useState(false);
+  const [hasErro, setHasErro] = useState(false);
+
+  const acept = async () => {
+    const response = await deleteTask(id);
+    if (response.id) {
+      setIsuccessOpen(true);
+      setTimeout(() => {
+        update((prev) => !prev);
+        setIsuccessOpen(false);
+      }, 2000);
+    } else {
+      setHasErro(true);
+    }
+  };
 
   return (
-    <Overlay>
-      <Modal>
-        <img src={Alert} alt="Alert" />
-        <ModalText>do you really want to delete this?</ModalText>
-        <ContainButtons>
-          <ModalButton
-            onClick={() => {
-              close((prev) => !prev);
-            }}
-          >
-            Cancel
-          </ModalButton>
-          <ModalButton
-            color="red"
-            onClick={async () => {
-              await deleteTask(id);
-              close((prev) => !prev);
-              update((prev) => !prev);
-            }}
-          >
-            Delete
-          </ModalButton>
-        </ContainButtons>
-      </Modal>
-    </Overlay>
+    <>
+      <GenericModal
+        colorButton="red"
+        button1="Cancel"
+        button2="Delete"
+        close={close}
+        acept={acept}
+        Text={
+          hasErro
+            ? "someThing was error, try again after"
+            : "do you really want to delete this?"
+        }
+        Image={Alert}
+      />
+      {isSuccessOpen && <SuccessModal />}
+    </>
   );
 };
 

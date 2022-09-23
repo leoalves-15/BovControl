@@ -13,9 +13,6 @@ import {
 import Map from "../Map";
 
 const FormTask: FC<FormTaskProps> = (props) => {
-  const [created, setCreated] = useState(false);
-  const [id, setId] = useState("");
-
   const {
     disabled,
     task,
@@ -24,6 +21,10 @@ const FormTask: FC<FormTaskProps> = (props) => {
     update = () => {},
     textButton,
   } = props;
+
+  const [created, setCreated] = useState(false);
+  const [hasSupervision, setHasSupervision] = useState(`${task?.had_supervision}`);
+  const [id, setId] = useState("");
 
   const [newPosition, setNewPosition] = useState<Position>(
     task?.location
@@ -133,18 +134,21 @@ const FormTask: FC<FormTaskProps> = (props) => {
             name="had_supervision"
             defaultValue={`${task?.had_supervision}`}
             disabled={disabled}
+            onChange={(e: any) => setHasSupervision(e.target.value)}
           >
-            <option value="true">Yes</option>
             <option value="false">No</option>
+            <option value="true">Yes</option>
           </Select>
         </FormRow>
         <FormRow>
-          <InputFull
-            defaultValue={task?.to?.name}
-            disabled={disabled}
-            name="supervision_name"
-            placeholder="Supervision name"
-          />
+          {hasSupervision === "true" && (
+            <InputFull
+              defaultValue={task?.to?.name}
+              disabled={disabled}
+              name="supervision_name"
+              placeholder="Supervision name"
+            />
+          )}
         </FormRow>
         <ContainMap>
           <Map setNewPosition={setNewPosition} center={newPosition} />

@@ -12,6 +12,10 @@ export const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.15);
+  > img {
+    width: 80px;
+    height: 50px;
+  }
 `;
 
 export const Modal = styled.div`
@@ -49,6 +53,16 @@ export const ModalButton = styled.button`
   cursor: pointer;
   border-radius: 8px;
   color: ${colors.backgroundCard};
-  background-color: ${(props) =>
-    props.color === "red" ? colors.delete : colors.subtitlePage};
+  background-color: ${(props) => {
+    if (props.color) {
+      if (props.color === "red") {
+        return colors.delete;
+      }
+      if (props.color === "green") {
+        return colors.success;
+      }
+    } else {
+      return colors.subtitlePage;
+    }
+  }};
 `;
