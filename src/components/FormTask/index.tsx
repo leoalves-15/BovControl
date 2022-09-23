@@ -15,7 +15,6 @@ import Map from "../Map";
 const FormTask: FC<FormTaskProps> = (props) => {
   const [created, setCreated] = useState(false);
   const [id, setId] = useState("");
-  const [newPosition, setNewPosition] = useState<Position>({lat: 0, lng: 0});
 
   const {
     disabled,
@@ -25,6 +24,12 @@ const FormTask: FC<FormTaskProps> = (props) => {
     update = () => {},
     textButton,
   } = props;
+
+  const [newPosition, setNewPosition] = useState<Position>(
+    task?.location
+      ? { lat: task?.location.latitude, lng: task?.location.longitude }
+      : { lat: 0, lng: 0 }
+  );
 
   function getRandomInt(min: number, max: number) {
     min = Math.ceil(min);
@@ -142,7 +147,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
           />
         </FormRow>
         <ContainMap>
-          <Map setNewPosition={setNewPosition} center={{ lat: task?.location?.latitude || 0, lng: task?.location?.longitude || 0 }} />
+          <Map setNewPosition={setNewPosition} center={newPosition} />
         </ContainMap>
         {textButton && (
           <SaveButton type="submit">
