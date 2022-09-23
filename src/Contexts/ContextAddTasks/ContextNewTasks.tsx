@@ -19,7 +19,7 @@ const NewTasksProvider = (props: { children: ReactNode }) => {
   };
 
   return (
-    <ContextNewTasks.Provider value={{ setTasks, createTasks }}>
+    <ContextNewTasks.Provider value={{ setTasks, createTasks, tasks }}>
       {props.children}
     </ContextNewTasks.Provider>
   );

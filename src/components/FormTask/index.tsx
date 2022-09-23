@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { FormTaskProps } from "./FormTask.types";
 import {
   Container,
@@ -11,7 +11,27 @@ import {
 } from "./styles";
 
 const FormTask: FC<FormTaskProps> = (props) => {
-  const { disabled, task, send = () => {}, textButton } = props;
+  const [created, setCreated] = useState(false);
+  const [id, setId] = useState("")
+
+  const {
+    disabled,
+    task,
+    send = () => {},
+    saveText,
+    update = () => {},
+    textButton,
+  } = props;
+
+  function getRandomInt(min: number, max: number) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
+  useEffect(() => {
+    setId(getRandomInt(0, 100000).toString());
+  }, []);
 
   return (
     <Container>
@@ -19,8 +39,9 @@ const FormTask: FC<FormTaskProps> = (props) => {
         onSubmit={(e: any) => {
           // any
           const elements = e.target.elements;
-
-          send(e, {
+          setCreated(true);
+          const data = {
+            id,
             type: elements.type.value,
             amount_of_milk_produced: parseInt(
               elements.amount_of_milk_produced.value
@@ -44,7 +65,16 @@ const FormTask: FC<FormTaskProps> = (props) => {
             },
             created_at: "2022-02-01T10:10:21.748Z",
             updated_at: "2022-02-01T10:10:21.748Z",
-          });
+          };
+          if (saveText) {
+            if (created) {
+              update(e, data);
+            } else {
+              send(e, data);
+            }
+          } else {
+            send(e, data);
+          }
         }}
       >
         <FormRow>
@@ -112,7 +142,11 @@ const FormTask: FC<FormTaskProps> = (props) => {
           />
         </FormRow>
         <FormRow>{/* mapa */}</FormRow>
-        {textButton && <SaveButton type="submit">{textButton}</SaveButton>}
+        {textButton && (
+          <SaveButton type="submit">
+            {created && saveText ? saveText : textButton}
+          </SaveButton>
+        )}
       </Form>
     </Container>
   );

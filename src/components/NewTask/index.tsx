@@ -1,36 +1,47 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Container, AddButon } from "./styles";
 import FormTask from "../FormTask";
-import { TasksComponents } from "./NewTask.types";
 import { ContextNewTasks } from "../../Contexts/ContextAddTasks/ContextNewTasks";
 import { task } from "../../types/Task.type";
 
 const NewTask = () => {
-  const { setTasks, createTasks } = useContext(ContextNewTasks);
+  const { setTasks, createTasks, tasks } = useContext(ContextNewTasks);
+
+  const updateTask = (e: any, data: task) => {
+    e.preventDefault();
+    const sameIndex = (element: task) => {
+      let idAux: string = element.id || "0";
+      return idAux === data.id;
+    };
+    const found = tasks.findIndex(sameIndex);
+
+    let taskAux = [...tasks];
+    taskAux[found] = data;
+    setTasks(taskAux);
+  };
 
   const addTask = (e: any, data: task) => {
     e.preventDefault();
-    setQtdTasks((prev) => [
-      ...prev,
-      {
-        Id: prev[prev.length - 1].Id + 1,
-        Task: <FormTask send={addTask} textButton="Add task" />,
-      },
-    ]);
-    setTasks((prev) => [
-      ...prev,
-      { ...data, id: `${Math.floor(Date.now() * Math.random())}` },
-    ]);
+    setTasks((prev) => [...prev, { ...data}]);
   };
-
-  const [qtdTasks, setQtdTasks] = useState<TasksComponents[]>([
-    { Id: 1, Task: <FormTask send={addTask} textButton="Add task" /> },
-  ]);
 
   return (
     <Container>
-      {qtdTasks.map((Item) => {
-        return Item.Task;
+      <FormTask
+        send={addTask}
+        textButton="Add task"
+        saveText="Save"
+        update={updateTask}
+      />
+      {tasks.map((Item) => {
+        return (
+          <FormTask
+            send={addTask}
+            textButton="Add task"
+            saveText="Save"
+            update={updateTask}
+          />
+        );
       })}
       <AddButon
         onClick={() => {

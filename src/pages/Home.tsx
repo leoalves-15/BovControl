@@ -13,7 +13,7 @@ const Home = () => {
   const scrollToRef = (ref: any) => window.scrollTo(0, ref.current.offsetTop);
 
   const contain = useRef(null);
-  const executeScroll = () => scrollToRef(contain)
+  const executeScroll = () => scrollToRef(contain);
 
   const load = async () => {
     setAllTasks(await getTasks());
