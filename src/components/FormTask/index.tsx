@@ -49,7 +49,6 @@ const FormTask: FC<FormTaskProps> = (props) => {
     <Container>
       <Form
         onSubmit={(e: any) => {
-          // any
           const elements = e.target.elements;
           setCreated(true);
           const data = {

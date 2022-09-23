@@ -15,7 +15,7 @@ const Update = () => {
   const [isOpenSuccess, setIsOpenSuccess] = useState(false);
   const navigate = useNavigate();
 
-  const update = (e: any, data: task) => {
+  const update = (e: { preventDefault: () => void; }, data: task) => {
     e.preventDefault();
     let id = currentTask?.id ? currentTask?.id : "-1";
     updateTask(data, id);

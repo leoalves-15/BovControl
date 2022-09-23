@@ -7,7 +7,7 @@ import { task } from "../../types/Task.type";
 const NewTask = () => {
   const { setTasks, createTasks, tasks } = useContext(ContextNewTasks);
 
-  const updateTask = (e: any, data: task) => {
+  const updateTask = (e: Event, data: task) => {
     e.preventDefault();
     const sameIndex = (element: task) => {
       let idAux: string = element.id || "0";
@@ -20,7 +20,7 @@ const NewTask = () => {
     setTasks(taskAux);
   };
 
-  const addTask = (e: any, data: task) => {
+  const addTask = (e: Event, data: task) => {
     e.preventDefault();
     setTasks((prev) => [...prev, { ...data }]);
   };

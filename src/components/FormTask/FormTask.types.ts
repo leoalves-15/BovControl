@@ -5,8 +5,8 @@ export type FormTaskProps = {
     textButton?: string;
     task?: task;
     saveText?: string;
-    send?: (e: { preventDefault: () => void }, data: task) => void;
-    update?: (e: { preventDefault: () => void }, data: task) => void;
+    send?: (e: Event, data: task) => void;
+    update?: (e: Event, data: task) => void;
     idList?: number;
 };
 
