@@ -5,6 +5,7 @@ import { task } from "../types/Task.type";
 import { ContainPage } from "../styles/generic-components";
 import { PageTitle } from "../styles/generic-components";
 import { AddTask } from "../components/AddTask";
+import Spinner from "../components/Spinner";
 
 const Home = () => {
   const [allTasks, setAllTasks] = useState<task[]>([]);
@@ -28,6 +29,7 @@ const Home = () => {
     <ContainPage ref={contain}>
       <PageTitle>Wellcome, these are your tasks.</PageTitle>
       <AddTask />
+      {!allTasks[0] && <Spinner />}
       {allTasks.map((task) => {
         return (
           <Task

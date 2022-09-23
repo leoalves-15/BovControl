@@ -7,6 +7,7 @@ import { NavIcons } from "../styles/generic-components";
 import Left from "../assets/images/left.svg";
 import { updateTask } from "../services/updateTask";
 import { task } from "../types/Task.type";
+import Spinner from "../components/Spinner";
 
 const Update = () => {
   const { currentTask } = useCurrentTask();
@@ -14,7 +15,7 @@ const Update = () => {
 
   const update = (e: any, data: task) => {
     e.preventDefault();
-    let id = currentTask?.id ? currentTask?.id : '-1';
+    let id = currentTask?.id ? currentTask?.id : "-1";
     updateTask(data, id);
   };
 
@@ -36,13 +37,15 @@ const Update = () => {
           ? `Task: ${currentTask?.farmer?.name}`
           : "Sorry! we can't find your task"}
       </PageTitle>
-      {currentTask?.farmer?.name && (
+      {currentTask?.farmer?.name ? (
         <FormTask
           task={currentTask}
           disabled={false}
           send={update}
           textButton="Update"
         />
+      ) : (
+        <Spinner />
       )}
     </ContainPage>
   );

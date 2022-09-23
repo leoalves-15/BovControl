@@ -5,6 +5,7 @@ import { useCurrentTask } from "../hooks/use-current-task";
 import { useNavigate } from "react-router-dom";
 import { NavIcons } from "../styles/generic-components";
 import Left from "../assets/images/left.svg";
+import Spinner from "../components/Spinner";
 
 const Task = () => {
   const { currentTask } = useCurrentTask();
@@ -23,8 +24,16 @@ const Task = () => {
           }}
         />
       </NavIcons>
-      <PageTitle>{currentTask?.farmer?.name ? `Task: ${currentTask?.farmer?.name}` : "Sorry! we can't find your task"}</PageTitle>
-      {currentTask?.farmer?.name && <FormTask task={currentTask} disabled={true} />}
+      <PageTitle>
+        {currentTask?.farmer?.name
+          ? `Task: ${currentTask?.farmer?.name}`
+          : "Sorry! we can't find your task"}
+      </PageTitle>
+      {currentTask?.farmer?.name ? (
+        <FormTask task={currentTask} disabled={true} />
+      ) : (
+        <Spinner />
+      )}
     </ContainPage>
   );
 };
