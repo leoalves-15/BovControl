@@ -49,6 +49,8 @@ const FormTask: FC<FormTaskProps> = (props) => {
     <Container>
       <Form
         onSubmit={(e: any) => {
+    e.preventDefault();
+
           const elements = e.target.elements;
           setCreated(true);
           const data = {
@@ -68,7 +70,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
               name: elements.farmer_name.value,
             },
             to: {
-              name: elements.supervision_name.value,
+              name: elements?.supervision_name?.value || "",
             },
             location: {
               latitude: newPosition?.lat,
@@ -94,6 +96,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
             disabled={disabled}
             placeholder="Farm Name"
             name="farm_name"
+            required
           />
         </FormRow>
         <FormRow>
@@ -102,6 +105,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
             disabled={disabled}
             placeholder="Farmer Name"
             name="farmer_name"
+            required
           />
         </FormRow>
         <FormRow>
@@ -110,6 +114,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
             disabled={disabled}
             placeholder="City"
             name="city"
+            required
           />
           <Select name="type" defaultValue={task?.type} disabled={disabled}>
             <option value="Antibiótico">Antibiótico</option>
@@ -124,6 +129,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
             name="number_of_cows_head"
             type="number"
             placeholder="Cown quantity"
+            required
           />
           <InputHalf
             name="amount_of_milk_produced"
@@ -131,6 +137,7 @@ const FormTask: FC<FormTaskProps> = (props) => {
             disabled={disabled}
             type="number"
             placeholder="Milk production"
+            required
           />
           <Select
             name="had_supervision"
